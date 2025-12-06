@@ -1,0 +1,248 @@
+.settings-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.settings-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.settings-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.settings-section h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.settings-description {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.action-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.action-button.vowels {
+    background: #e74c3c;
+}
+
+.action-button.vowels:hover {
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.action-button.consonants {
+    background: #27ae60;
+}
+
+.action-button.consonants:hover {
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.letter-toggle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #ddd;
+    background: #f8f9fa;
+    color: #666;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-toggle:hover:not(.disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.letter-toggle.selected {
+    background: #3498db;
+    border-color: #2980b9;
+    color: white;
+}
+
+.letter-toggle.selected.vowel {
+    background: #e74c3c;
+    border-color: #c0392b;
+}
+
+.letter-toggle.selected.consonant {
+    background: #27ae60;
+    border-color: #229954;
+}
+
+.letter-toggle.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.selected-count {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .settings-page {
+        padding: 15px;
+    }
+
+    .settings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .settings-header h1 {
+        font-size: 2rem;
+    }
+
+    .settings-section {
+        padding: 20px;
+    }
+
+    .letter-grid {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 8px;
+    }
+
+    .letter-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .quick-actions {
+        justify-content: center;
+    }
+
+    .action-button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-header {
+        gap: 10px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .settings-section {
+        padding: 15px;
+    }
+
+    .letter-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+    }
+
+    .letter-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        border-width: 2px;
+    }
+}
+
+/* Animation for letter changes */
+.letter-toggle {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

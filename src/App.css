@@ -6,6 +6,7 @@
     align-items: center;
     cursor: pointer;
     font-family: "Arial", sans-serif;
+    position: relative;
 }
 
 .flashcard-container {
@@ -96,5 +97,46 @@
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Settings button */
+.settings-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.settings-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.settings-button svg {
+    transition: transform 0.3s ease;
+}
+
+/* Mobile adjustments for settings button */
+@media (max-width: 480px) {
+    .settings-button {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
     }
 }
