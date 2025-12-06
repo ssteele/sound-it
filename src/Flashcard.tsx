@@ -46,7 +46,11 @@ const Flashcard: React.FC = () => {
       <div className="flashcard-container">
         <div className="flashcard">
           {currentLetter && (<div className="letter">{currentLetter}</div>)}
-          {!currentLetter && (<div className="instructions">Select letters to practice<br />on the Settings page.</div>)}
+          {!currentLetter && (
+            <div className="instructions">
+              Select letters to practice<br />on the <Link to="/settings" onClick={(e) => e.stopPropagation()}>Settings page</Link>.
+            </div>
+          )}
         </div>
       </div>
     </div>
