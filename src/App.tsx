@@ -54,7 +54,6 @@ function App() {
         <div className="flashcard">
           <div className="letter">{currentLetter}</div>
         </div>
-        <div className="instructions">Tap anywhere to see the next letter!</div>
       </div>
     </div>
   );
