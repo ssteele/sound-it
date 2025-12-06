@@ -69,12 +69,12 @@
 
 @media (max-width: 480px) {
     .letter {
-        font-size: 5rem;
+        font-size: 8rem;
     }
 
     .flashcard {
-        min-width: 200px;
-        min-height: 200px;
+        min-width: 250px;
+        min-height: 250px;
         padding: 20px;
     }
 
