@@ -45,7 +45,7 @@ const Flashcard: React.FC = () => {
       </Link>
       <div className="flashcard-container">
         <div className="flashcard">
-          {currentLetter && (<div className="letter">{currentLetter}</div>)}
+          {currentLetter && (<div className="letter">{currentLetter}{currentLetter.toLocaleLowerCase()}</div>)}
           {!currentLetter && (
             <div className="instructions">
               Select letters to practice<br />on the <Link to="/settings" onClick={(e) => e.stopPropagation()}>Settings page</Link>.
