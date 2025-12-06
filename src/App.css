@@ -1,0 +1,100 @@
+.App {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Arial", sans-serif;
+}
+
+.flashcard-container {
+    text-align: center;
+    user-select: none;
+}
+
+.flashcard {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    margin: 20px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.letter {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+}
+
+.instructions {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .letter {
+        font-size: 6rem;
+    }
+
+    .flashcard {
+        min-width: 250px;
+        min-height: 250px;
+        padding: 30px;
+    }
+
+    .instructions {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter {
+        font-size: 5rem;
+    }
+
+    .flashcard {
+        min-width: 200px;
+        min-height: 200px;
+        padding: 20px;
+    }
+
+    .instructions {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for letter changes */
+.flashcard {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
