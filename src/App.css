@@ -43,14 +43,6 @@
     line-height: 1;
 }
 
-.instructions {
-    color: white;
-    font-size: 1.5rem;
-    margin-top: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-weight: 500;
-}
-
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .letter {
@@ -105,7 +97,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     color: white;
     border: none;
     border-radius: 50%;
@@ -117,12 +109,15 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+}
+
+.settings-button svg {
+    fill: #667DEA;
 }
 
 .settings-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px) rotate(90deg);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
