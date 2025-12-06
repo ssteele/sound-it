@@ -75,13 +75,11 @@ export const LettersProvider: React.FC<LettersProviderProps> = ({
   };
 
   const toggleLetter = (letter: string) => {
-    setSelectedLetters(prev => {
-      if (prev.includes(letter)) {
-        return prev.filter((l: string) => l !== letter);
-      } else {
-        return [...prev, letter].sort();
-      }
-    });
+    const newSelection = selectedLetters.includes(letter)
+      ? selectedLetters.filter((l) => l !== letter)
+      : [...selectedLetters, letter].sort();
+
+    setSelectedLetters(newSelection);
   };
 
   const isLetterSelected = (letter: string): boolean => {
