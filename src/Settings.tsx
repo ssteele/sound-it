@@ -16,8 +16,7 @@ const Settings: React.FC = () => {
   };
 
   const handleDeselectAll = () => {
-    // Keep at least one letter selected
-    setSelectedLetters([ALL_LETTERS[0]]);
+    setSelectedLetters([]);
   };
 
   const handleToggleVowels = () => {
@@ -25,17 +24,17 @@ const Settings: React.FC = () => {
     const allVowelsSelected = vowels.every((vowel) => isLetterSelected(vowel));
 
     if (allVowelsSelected) {
-      // Deselect vowels (but keep at least one letter total)
+      // deselect vowels
       const newSelection = selectedLetters.filter(
         (letter) => !vowels.includes(letter),
       );
       if (newSelection.length === 0) {
-        setSelectedLetters(["A"]); // Keep at least one
+        setSelectedLetters([]);
       } else {
         setSelectedLetters(newSelection);
       }
     } else {
-      // Select all vowels
+      // select all vowels
       const combined = [...selectedLetters, ...vowels];
       const newSelection = Array.from(new Set(combined)).sort();
       setSelectedLetters(newSelection);
@@ -50,17 +49,17 @@ const Settings: React.FC = () => {
     );
 
     if (allConsonantsSelected) {
-      // Deselect consonants (but keep at least one letter total)
+      // deselect consonants
       const newSelection = selectedLetters.filter((letter) =>
         vowels.includes(letter),
       );
       if (newSelection.length === 0) {
-        setSelectedLetters(["A"]); // Keep at least one
+        setSelectedLetters([]);
       } else {
         setSelectedLetters(newSelection);
       }
     } else {
-      // Select all consonants
+      // select all consonants
       const combined = [...selectedLetters, ...consonants];
       const newSelection = Array.from(new Set(combined)).sort();
       setSelectedLetters(newSelection);
@@ -89,10 +88,9 @@ const Settings: React.FC = () => {
 
       <div className="settings-content">
         <div className="settings-section">
-          <h2>Choose Letters to Practice</h2>
+          <h2>Letters</h2>
           <p className="settings-description">
-            Select which letters you'd like to practice. At least one letter
-            must be selected.
+            Select letters to practice.
           </p>
 
           <div className="quick-actions">
@@ -106,7 +104,7 @@ const Settings: React.FC = () => {
               onClick={handleToggleVowels}
               className="action-button vowels"
             >
-              Toggle Vowels (A, E, I, O, U)
+              Toggle Vowels
             </button>
             <button
               onClick={handleToggleConsonants}
@@ -120,19 +118,13 @@ const Settings: React.FC = () => {
             {ALL_LETTERS.map((letter) => {
               const isSelected = isLetterSelected(letter);
               const isVowel = ["A", "E", "I", "O", "U"].includes(letter);
-              const isLastSelected = selectedLetters.length === 1 && isSelected;
 
               return (
                 <button
                   key={letter}
-                  className={`letter-toggle ${isSelected ? "selected" : ""} ${isVowel ? "vowel" : "consonant"} ${isLastSelected ? "disabled" : ""}`}
+                  className={`letter-toggle ${isSelected ? "selected" : ""} ${isVowel ? "vowel" : "consonant"}`}
                   onClick={() => toggleLetter(letter)}
-                  disabled={isLastSelected}
-                  title={
-                    isLastSelected
-                      ? "At least one letter must be selected"
-                      : `Toggle ${letter}`
-                  }
+                  title={`Toggle ${letter}`}
                 >
                   {letter}
                 </button>

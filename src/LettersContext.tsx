@@ -10,8 +10,7 @@ interface LettersContextType {
 const LettersContext = createContext<LettersContextType | undefined>(undefined);
 
 const ALL_LETTERS = [
-  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
 interface LettersProviderProps {
@@ -24,8 +23,6 @@ export const LettersProvider: React.FC<LettersProviderProps> = ({ children }) =>
   const toggleLetter = (letter: string) => {
     setSelectedLetters(prev => {
       if (prev.includes(letter)) {
-        // Don't allow deselecting if it's the last letter
-        if (prev.length === 1) return prev;
         return prev.filter(l => l !== letter);
       } else {
         return [...prev, letter].sort();

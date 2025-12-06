@@ -8,7 +8,6 @@ const Flashcard: React.FC = () => {
   const [currentLetter, setCurrentLetter] = useState("");
 
   const getRandomLetter = () => {
-    if (selectedLetters.length === 0) return "A";
     const randomIndex = Math.floor(Math.random() * selectedLetters.length);
     return selectedLetters[randomIndex];
   };
@@ -19,9 +18,8 @@ const Flashcard: React.FC = () => {
   };
 
   useEffect(() => {
-    // Set initial random letter when component mounts or selected letters change
+    // set initial random letter when component mounts or selected letters change
     const getRandomLetter = () => {
-      if (selectedLetters.length === 0) return "A";
       const randomIndex = Math.floor(Math.random() * selectedLetters.length);
       return selectedLetters[randomIndex];
     };
@@ -47,7 +45,8 @@ const Flashcard: React.FC = () => {
       </Link>
       <div className="flashcard-container">
         <div className="flashcard">
-          <div className="letter">{currentLetter}</div>
+          {currentLetter && (<div className="letter">{currentLetter}</div>)}
+          {!currentLetter && (<div className="instructions">Select letters to practice<br />on the Settings page.</div>)}
         </div>
       </div>
     </div>

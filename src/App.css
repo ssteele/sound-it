@@ -43,6 +43,11 @@
     line-height: 1;
 }
 
+.instructions {
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .letter {
@@ -117,9 +122,7 @@
 }
 
 .settings-button:hover {
-    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px) rotate(90deg);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .settings-button svg {
