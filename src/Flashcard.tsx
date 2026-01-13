@@ -19,10 +19,6 @@ const Flashcard: React.FC = () => {
 
   useEffect(() => {
     // set initial random letter when component mounts or selected letters change
-    const getRandomLetter = () => {
-      const randomIndex = Math.floor(Math.random() * selectedLetters.length);
-      return selectedLetters[randomIndex];
-    };
     setCurrentLetter(getRandomLetter());
   }, [selectedLetters]);
 
