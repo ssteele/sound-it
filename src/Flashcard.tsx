@@ -7,19 +7,23 @@ const Flashcard: React.FC = () => {
   const { selectedLetters } = useLetters();
   const [currentLetter, setCurrentLetter] = useState("");
 
-  const getRandomLetter = () => {
-    const randomIndex = Math.floor(Math.random() * selectedLetters.length);
-    return selectedLetters[randomIndex];
+  const getRandomLetter = (letter: string) => {
+    const otherLetters = selectedLetters.filter((l) => l !== letter);
+    if (otherLetters.length === 0) {
+      return letter;
+    }
+    const randomIndex = Math.floor(Math.random() * otherLetters.length);
+    return otherLetters[randomIndex];
   };
 
   const handleTap = () => {
-    const newLetter = getRandomLetter();
+    const newLetter = getRandomLetter(currentLetter);
     setCurrentLetter(newLetter);
   };
 
   useEffect(() => {
     // set initial random letter when component mounts or selected letters change
-    setCurrentLetter(getRandomLetter());
+    setCurrentLetter(getRandomLetter(''));
   }, [selectedLetters]);
 
   return (
