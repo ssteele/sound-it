@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLetters } from "./LettersContext";
 import "./App.css";
@@ -7,14 +7,14 @@ const Flashcard: React.FC = () => {
   const { selectedLetters } = useLetters();
   const [currentLetter, setCurrentLetter] = useState("");
 
-  const getRandomLetter = (letter: string) => {
+  const getRandomLetter = useCallback((letter: string) => {
     const otherLetters = selectedLetters.filter((l) => l !== letter);
     if (otherLetters.length === 0) {
       return letter;
     }
     const randomIndex = Math.floor(Math.random() * otherLetters.length);
     return otherLetters[randomIndex];
-  };
+  }, [selectedLetters]);
 
   const handleTap = () => {
     const newLetter = getRandomLetter(currentLetter);
@@ -24,7 +24,7 @@ const Flashcard: React.FC = () => {
   useEffect(() => {
     // set initial random letter when component mounts or selected letters change
     setCurrentLetter(getRandomLetter(''));
-  }, [selectedLetters]);
+  }, [getRandomLetter]);
 
   return (
     <div className="App" onClick={handleTap}>
